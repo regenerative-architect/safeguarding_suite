@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="Safeguarding Next-Gen OS: systems tools, simulations and stories for reducing harm opportunity, reward and transmission while increasing detection, repair and protective capacity.">
+<title>Safeguarding Next-Gen OS</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./assets/app.css">
+</head>
+<body>
+<a class="skip" href="#workspace">Skip to workspace</a>
+<noscript><div class="noscript"><strong>JavaScript is disabled.</strong> Core reference content is available in <a href="./docs/CHAT_COMPENDIUM.md">docs/CHAT_COMPENDIUM.md</a>. Interactive planning, simulation, search and local persistence require JavaScript.</div></noscript>
+
+<div id="splash" class="splash" role="dialog" aria-modal="true" aria-labelledby="splash-title">
+  <div class="splash-card">
+    <p class="eyebrow">Foster + Navi / Planetary Restoration Archive</p>
+    <h1 id="splash-title">Safeguarding Next-Gen</h1>
+    <p>Design systems where harmful behavior has poor economics: higher friction, lower reward, stronger interruption, better repair, and weaker transmission across generations.</p>
+    <div class="splash-track" aria-hidden="true"><i id="splash-progress"></i></div>
+    <div class="splash-status" id="splash-status" aria-live="polite">Loading protective systems…</div>
+    <button class="primary" id="enter-app" type="button">Enter workspace</button>
+    <label class="checkline" style="justify-content:center;margin-top:12px"><input type="checkbox" id="skip-splash"> Skip splash next time</label>
+    <small>Fail-safe startup: optional subsystems can fail without trapping you here.</small>
+  </div>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="#overview" aria-label="Safeguarding Next-Gen home"><span class="brand-mark">✦</span><span><strong>Safeguarding</strong><small>Next-Gen OS</small></span></a>
+  <nav class="topnav" id="top-nav" aria-label="Primary"></nav>
+  <div class="top-actions">
+    <button class="icon-btn" id="global-search-button" title="Search" aria-label="Search workspace">⌕</button>
+    <button class="icon-btn" id="theme-toggle" title="Theme" aria-label="Toggle light and dark theme">◐</button>
+    <button class="icon-btn" id="motion-toggle" title="Motion" aria-label="Toggle motion effects">≈</button>
+    <button class="icon-btn mobile-only" id="right-drawer-toggle" aria-label="Open progress HUD">⋮</button>
+    <button class="icon-btn mobile-only" id="drawer-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+<div class="shell">
+<aside class="sidebar" id="side" aria-label="Workspace navigation">
+  <div class="status-card"><div><span id="online-dot" class="dot"></span><strong id="online-label">Checking…</strong></div><small id="pwa-label">PWA status pending</small></div>
+  <nav class="side-nav" id="side-nav"></nav>
+  <div class="sidebar-footer">
+    <button class="secondary full" id="export-state">Export workspace JSON</button>
+    <label class="secondary full" style="text-align:center;cursor:pointer">Import workspace JSON<input class="hidden" id="import-state" type="file" accept="application/json,.json"></label>
+    <button class="secondary full" id="download-compendium">Download session compendium</button>
+    <small>Local records remain in this browser unless you explicitly export or activate a collaboration feature.</small>
+  </div>
+</aside>
+
+<main id="workspace" tabindex="-1">
+<div class="breadcrumbs" id="breadcrumbs"></div>
+
+<section id="overview" class="route active" data-route="overview">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Systems prevention • repair • intergenerational resilience</p>
+      <h1>Make harm difficult to scale.</h1>
+      <p class="lead">A privacy-first workbench for designing environments where harmful behavior is harder to perform, easier to notice proportionately, less rewarding, and less likely to become an inherited script.</p>
+      <div class="hero-actions"><a class="primary button-link" href="#systems">Explore 10 systems</a><a class="secondary button-link" href="#planner">Run safeguarding planner</a><a class="secondary button-link" href="#stories">Open Story Lab</a></div>
+      <div class="notice"><strong>Design boundary:</strong> this OS evaluates workflows, incentives, environments and protective capacity—not whether a person is “dangerous,” guilty, disordered or deserving of punishment.</div>
+    </div>
+    <div class="hero-orbit" aria-hidden="true"><div class="hero-core">Protective<br>Capacity</div></div>
+  </div>
+  <div class="stats" id="overview-stats"></div>
+  <div class="grid three">
+    <article class="panel"><h2>Prevention before punishment</h2><p>Map the sequence that makes harm possible, then insert proportional friction, oversight, safer defaults and off-ramps before irreversible action.</p></article>
+    <article class="panel"><h2>Weak signals, strong privacy</h2><p>Aggregate categories and trends rather than building personal dossiers. A signal means “review the system,” not “declare someone guilty.”</p></article>
+    <article class="panel"><h2>Repair is infrastructure</h2><p>Accountability is paired with restitution, recurrence prevention, reintegration and learning so mistakes do not automatically become permanent identities.</p></article>
+  </div>
+  <article class="panel"><h2>Shared prevention model</h2><div class="timeline" id="prevention-chain"></div></article>
+</section>
+
+<section id="systems" class="route" data-route="systems">
+  <div class="page-head"><div><p class="eyebrow">Core architecture</p><h1>Ten safeguarding operating systems</h1><p>Each module targets a different leverage point. Combine them rather than treating any one dashboard as a complete answer.</p></div></div>
+  <div class="toolbar"><label class="searchbox"><span>⌕</span><input type="search" id="system-search" placeholder="Search systems, mechanisms, contexts…"></label><button class="secondary" id="expand-systems">Expand all</button><button class="secondary" id="collapse-systems">Collapse all</button></div>
+  <div class="grid two" id="system-list"></div>
+  <article class="panel"><h2>Selected capability constellation</h2><p class="muted">Select modules above to see how prevention levers reinforce one another.</p><div class="canvas-wrap"><svg id="system-constellation" viewBox="0 0 900 430" role="img" aria-label="Selected safeguarding module constellation"></svg></div></article>
+</section>
+
+<section id="friction" class="route" data-route="friction">
+  <div class="page-head"><div><p class="eyebrow">Module 01</p><h1>Harm Friction OS</h1><p>Analyze the pathway from intent to imitation and identify where proportionate safeguards can interrupt escalation without burdening ordinary legitimate behavior.</p></div></div>
+  <div class="grid two">
+    <article class="panel"><h2>Workflow mapper</h2><label>System or workflow<input id="friction-workflow" placeholder="e.g. school reporting, procurement, online community"></label><label>Primary concern<select id="friction-concern"><option>coercion or harassment</option><option>fraud or corruption</option><option>bullying or humiliation</option><option>exploitation</option><option>misinformation amplification</option><option>retaliation or cover-up</option></select></label><fieldset id="friction-stages"><legend>Where is the pathway easiest?</legend></fieldset><button class="primary" id="run-friction">Generate friction plan</button></article>
+    <article class="panel"><h2>Intervention plan</h2><div id="friction-output" class="stack"><p class="muted">Choose workflow stages and generate a plan.</p></div></article>
+  </div>
+  <article class="panel"><h2>Pathway</h2><div class="timeline" id="friction-pathway"></div></article>
+</section>
+
+<section id="intergenerational" class="route" data-route="intergenerational">
+  <div class="page-head"><div><p class="eyebrow">Module 02</p><h1>Intergenerational Safeguarding Dashboard</h1><p>Explore how environmental pressures and protective factors may compound or interrupt transmission over time. This is a planning heuristic, not a diagnosis or individual prediction.</p></div></div>
+  <div class="grid two">
+    <article class="panel"><h2>Environmental pressure</h2><div id="exposure-checks" class="stack"></div></article>
+    <article class="panel"><h2>Protective capacity</h2><div id="protective-checks" class="stack"></div></article>
+  </div>
+  <div class="grid two">
+    <article class="panel"><h2>Transmission-pressure heuristic</h2><div class="pressure-output" id="transmission-score">0</div><div class="pressure-label" id="transmission-label">Select conditions to explore</div><p class="muted">Illustrative system-level index only. It should never be used to rank families, children, cultures or individuals.</p></article>
+    <article class="panel"><h2>Recommended protective moves</h2><div id="protective-moves" class="stack"></div></article>
+  </div>
+</section>
+
+<section id="integrity" class="route" data-route="integrity">
+  <div class="page-head"><div><p class="eyebrow">Module 03</p><h1>Integrity-by-Design Toolkit</h1><p>Apply security-engineering logic to institutional processes: reduce unilateral power, preserve evidence, expose conflicts of interest, and keep appeal and correction paths open.</p></div></div>
+  <div class="grid two">
+    <article class="panel"><h2>Workflow integrity scan</h2><label>Workflow name<input id="integrity-name" placeholder="e.g. hiring, discipline, benefits approval"></label><div id="integrity-risks" class="stack"></div><button class="primary" id="run-integrity">Design controls</button></article>
+    <article class="panel"><h2>Control architecture</h2><div id="integrity-output" class="stack"></div></article>
+  </div>
+</section>
+
+<section id="signals" class="route" data-route="signals">
+  <div class="page-head"><div><p class="eyebrow">Module 04</p><h1>Early Signal Commons</h1><p>Aggregate non-identifying weak signals to identify system patterns that deserve review. A trend is not proof of wrongdoing.</p></div></div>
+  <div class="notice warning"><strong>Privacy rule:</strong> do not enter names, personal allegations, medical details or uniquely identifying narratives. Use categories and counts.</div>
+  <div class="grid two">
+    <article class="panel"><h2>Add aggregate signal</h2><label>Category<select id="signal-category"><option>safety incident count</option><option>anonymous concern count</option><option>absenteeism trend</option><option>staff turnover trend</option><option>service failure</option><option>supply anomaly</option><option>complaint clustering</option><option>intimidation concern</option></select></label><label>Count / magnitude<input id="signal-count" type="number" min="0" value="1"></label><label>Context tag<input id="signal-context" maxlength="80" placeholder="e.g. one site / one month"></label><button class="primary" id="add-signal">Add aggregate signal</button></article>
+    <article class="panel"><h2>Pattern view</h2><div id="signal-summary" class="stack"></div></article>
+  </div>
+  <article class="panel"><div class="section-split"><div><h2>Local signal ledger</h2><p class="muted">Stored only on this device unless exported.</p></div><button class="secondary" id="clear-signals">Clear signals</button></div><div class="signal-list" id="signal-list"></div></article>
+</section>
+
+<section id="exploitability" class="route" data-route="exploitability">
+  <div class="page-head"><div><p class="eyebrow">Module 05</p><h1>Exploitability Surface Mapper</h1><p>Map hazardous system conditions—dependency, information asymmetry, concentrated authority, scarcity, isolation, opacity and weak grievance channels—without scoring people.</p></div></div>
+  <div class="grid two"><article class="panel"><h2>System conditions</h2><div id="exploit-sliders"></div></article><article class="panel"><h2>Exploitability surface</h2><div class="pressure-output" id="exploit-score">0</div><p id="exploit-label" class="pressure-label"></p><div id="exploit-recommendations" class="stack"></div></article></div>
+</section>
+
+<section id="rewards" class="route" data-route="rewards">
+  <div class="page-head"><div><p class="eyebrow">Module 06</p><h1>Reward Reversal Engine</h1><p>Identify what an environment currently pays—in money, status, attention, fear, belonging or virality—and redirect recognition toward cooperation, repair, teaching and contribution.</p></div></div>
+  <div class="grid two"><article class="panel"><h2>Map a reward loop</h2><label>Behavior or pattern<input id="reward-behavior" placeholder="e.g. public humiliation for attention"></label><label>Current reward<select id="reward-current"><option>attention / virality</option><option>money</option><option>status / dominance</option><option>belonging</option><option>fear / control</option><option>career advantage</option><option>revenge satisfaction</option></select></label><label>Healthy substitute<select id="reward-target"><option>teaching / mentorship</option><option>repair / restitution</option><option>cooperation</option><option>verified contribution</option><option>conflict de-escalation</option><option>community service</option></select></label><button class="primary" id="run-reward">Design reward reversal</button></article><article class="panel"><h2>Reversal architecture</h2><div id="reward-output" class="stack"></div></article></div>
+</section>
+
+<section id="narrative" class="route" data-route="narrative">
+  <div class="page-head"><div><p class="eyebrow">Module 07</p><h1>Narrative Immunity OS</h1><p>Practice identifying rhetorical conditions that can accelerate scapegoating, humiliation, coercion, revenge and moral disengagement—without pretending a text scanner can determine truth or intent.</p></div></div>
+  <div class="grid two"><article class="panel"><h2>Text cue scanner</h2><label>Paste a message or narrative<textarea id="narrative-text" rows="10" placeholder="Analyze rhetorical cues; avoid private or identifying material."></textarea></label><button class="primary" id="scan-narrative">Scan cues</button></article><article class="panel"><h2>Review cues</h2><div id="narrative-output" class="stack"></div></article></div>
+  <article class="panel"><h2>Narrative mutation simulator</h2><label>Neutral starting claim<input id="mutation-claim" value="A local program changed its eligibility rules."></label><button class="secondary" id="mutate-claim">Show escalation pathway</button><div class="timeline" id="mutation-output"></div></article>
+</section>
+
+<section id="accountability" class="route" data-route="accountability">
+  <div class="page-head"><div><p class="eyebrow">Module 08</p><h1>Restorative Accountability Ledger</h1><p>Track acknowledgement, evidence status, repair, safeguards, recurrence and reintegration without equating accountability with humiliation or forgiveness with absence of safeguards.</p></div></div>
+  <div class="notice warning"><strong>Use pseudonymous case IDs.</strong> This local demo is not a secure case-management system and should not contain sensitive personal records.</div>
+  <div class="grid two"><article class="panel"><h2>Add repair record</h2><label>Case ID<input id="case-id" maxlength="40" placeholder="e.g. CASE-017"></label><label>Pattern<select id="case-pattern"><option>conflict / harm</option><option>bullying / humiliation</option><option>retaliation</option><option>policy violation</option><option>resource misuse</option><option>trust breach</option></select></label><label>Evidence status<select id="case-evidence"><option>unverified report</option><option>under review</option><option>partially corroborated</option><option>established through appropriate process</option></select></label><label>Repair status<select id="case-repair"><option>not started</option><option>acknowledged</option><option>repair underway</option><option>repair completed</option><option>monitoring safeguards</option></select></label><button class="primary" id="add-case">Add record</button></article><article class="panel"><h2>Ledger principles</h2><div class="stack"><div class="record"><strong>Evidence ≠ allegation</strong><p>Preserve separate states and due process.</p></div><div class="record"><strong>Repair ≠ erasure</strong><p>Lessons and safeguards remain even when stigma should not.</p></div><div class="record"><strong>Recurrence matters</strong><p>Track whether safeguards reduce repeated harm rather than maximizing punishment.</p></div></div></article></div>
+  <article class="panel"><div class="section-split"><h2>Local repair ledger</h2><button class="secondary" id="clear-cases">Clear ledger</button></div><div class="ledger-list" id="case-list"></div></article>
+</section>
+
+<section id="simulation" class="route" data-route="simulation">
+  <div class="page-head"><div><p class="eyebrow">Module 09</p><h1>Safeguarding Simulation Lab</h1><p>Rehearse hypothetical environments and interventions. The model visualizes system pressure, not the probability that a person will cause harm.</p></div></div>
+  <div class="grid two"><article class="panel"><h2>System-pressure variables</h2><div id="simulation-sliders"></div><button class="secondary" id="reset-simulation">Reset neutral baseline</button></article><article class="panel"><h2>Illustrative pressure index</h2><div class="pressure-output" id="pressure-index">0</div><p class="pressure-label" id="pressure-interpretation"></p><div id="pressure-advice" class="stack"></div></article></div>
+  <article class="panel"><h2>Scenario rehearsal</h2><div class="grid two"><label>Scenario<select id="scenario-type"><option>bullying escalation</option><option>institutional cover-up</option><option>online outrage spiral</option><option>financial exploitation</option><option>workplace retaliation</option><option>disaster opportunism</option></select></label><label>Your role<select id="scenario-role"><option>student / participant</option><option>teacher / facilitator</option><option>parent / caregiver</option><option>administrator</option><option>community organizer</option><option>policymaker / institutional designer</option><option>platform designer</option></select></label></div><button class="primary" id="run-scenario">Generate rehearsal</button><div class="timeline" id="scenario-output"></div></article>
+</section>
+
+<section id="ecosystem" class="route" data-route="ecosystem">
+  <div class="page-head"><div><p class="eyebrow">Module 10</p><h1>Protective Ecosystem Command Center</h1><p>Coordinate prevention and repair across family, education, health, housing, justice, community, media, technology, employment and governance.</p></div></div>
+  <div class="grid two"><article class="panel"><h2>Ecosystem capacity</h2><div id="ecosystem-sliders"></div></article><article class="panel"><h2>Protective capacity profile</h2><div class="pressure-output" id="ecosystem-score">0%</div><div id="ecosystem-gaps" class="stack"></div></article></div>
+  <article class="panel"><h2>Coordination graph</h2><div class="canvas-wrap"><svg id="ecosystem-graph" viewBox="0 0 900 480" role="img" aria-label="Protective ecosystem graph"></svg></div></article>
+</section>
+
+<section id="stories" class="route" data-route="stories">
+  <div class="page-head"><div><p class="eyebrow">Narrative intervention layer</p><h1>Ten stories that weaken harmful scripts</h1><p>Stories are treated as cultural infrastructure: each one links a memorable narrative pattern to a concrete systems lesson and discussion activity.</p></div></div>
+  <div class="toolbar"><label class="searchbox"><span>⌕</span><input id="story-search" type="search" placeholder="Search story themes, audiences, mechanisms…"></label><select id="story-audience"><option value="all">All audiences</option><option>schools</option><option>families</option><option>communities</option><option>institutions</option><option>general</option></select></div>
+  <div class="grid two" id="story-list"></div>
+  <article class="panel" id="story-workshop"><h2>Story → system translator</h2><div class="grid two"><label>Selected story<select id="story-select"></select></label><label>Target audience<select id="story-target"><option>middle/high school</option><option>families</option><option>workplaces</option><option>community groups</option><option>public institutions</option><option>general audience</option></select></label></div><label>Local context or theme<input id="story-context" placeholder="e.g. rebuilding trust after a divisive year"></label><button class="primary" id="translate-story">Generate learning arc</button><div class="timeline" id="story-translation"></div></article>
+</section>
+
+<section id="planner" class="route" data-route="planner">
+  <div class="page-head"><div><p class="eyebrow">Deterministic systems planner</p><h1>Safeguarding intervention planner</h1><p>Intent classification → system lever selection → privacy constraints → intervention patterns → failure modes → measurement → review gates. No model required.</p></div></div>
+  <div class="grid two"><article class="panel"><h2>Project brief</h2><label>Setting<select id="planner-setting"><option>school / education</option><option>family / caregiving network</option><option>workplace / organization</option><option>online community / platform</option><option>neighborhood / community</option><option>public institution</option><option>humanitarian / field setting</option></select></label><label>Concern<select id="planner-concern"><option>bullying / humiliation</option><option>coercion / harassment</option><option>corruption / misuse of authority</option><option>retaliation / cover-up</option><option>exploitation / predatory incentives</option><option>narrative escalation / scapegoating</option><option>intergenerational repetition</option></select></label><label>Primary goal<select id="planner-goal"><option>prevent escalation</option><option>improve early visibility</option><option>reduce harmful reward</option><option>interrupt transmission</option><option>strengthen repair</option><option>increase protective capacity</option><option>balanced system redesign</option></select></label><label>Constraints<textarea id="planner-constraints" rows="4" placeholder="Budget, privacy, accessibility, staffing, offline needs…"></textarea></label><label class="checkline"><input id="planner-min-data" type="checkbox" checked> Minimize personal data collection</label><label class="checkline"><input id="planner-repair" type="checkbox" checked> Include repair and reintegration pathways</label><label class="checkline"><input id="planner-youth" type="checkbox"> Include youth co-design and age-appropriate participation</label><button class="primary" id="run-planner">Generate staged plan</button></article><article class="panel"><h2>Plan output</h2><div id="planner-output" class="timeline"></div><div class="button-row"><button class="secondary" id="copy-plan">Copy plan</button><button class="secondary" id="download-plan">Download plan</button></div></article></div>
+</section>
+
+<section id="evidence" class="route" data-route="evidence">
+  <div class="page-head"><div><p class="eyebrow">Traceability</p><h1>Evidence & provenance ledger</h1><p>Keep facts, inference, hypotheses, simulations, metaphors and fiction visibly distinct. The bundle starts with conceptual content from this chat, not a claim of external validation.</p></div></div>
+  <div class="grid two"><article class="panel"><h2>Add evidence record</h2><label>Statement<textarea id="evidence-claim" rows="4"></textarea></label><label>Epistemic label<select id="evidence-type"><option>fact</option><option>inference</option><option>hypothesis</option><option>simulation</option><option>metaphor</option><option>fiction</option><option>design principle</option></select></label><label>Source / citation<input id="evidence-source" placeholder="URL, publication, local policy, interview ID, etc."></label><label>Review status<select id="evidence-status"><option>unreviewed</option><option>needs verification</option><option>human reviewed</option><option>verified against source</option><option>contradicted / superseded</option></select></label><button class="primary" id="add-evidence">Add record</button></article><article class="panel"><h2>Evidence discipline</h2><div class="stack"><div class="record"><strong>Fact</strong><p>Externally checkable statement supported by an identified source.</p></div><div class="record"><strong>Inference / hypothesis</strong><p>Interpretation or testable proposition, never silently promoted to fact.</p></div><div class="record"><strong>Simulation / metaphor / fiction</strong><p>Useful for exploration or storytelling, explicitly non-empirical.</p></div></div></article></div>
+  <article class="panel"><div class="section-split"><div><h2>Local evidence records</h2><p class="muted">Search and filter your own provenance ledger.</p></div><select id="evidence-filter"><option value="all">All labels</option><option>fact</option><option>inference</option><option>hypothesis</option><option>simulation</option><option>metaphor</option><option>fiction</option><option>design principle</option></select></div><div class="evidence-list" id="evidence-list"></div></article>
+</section>
+
+<section id="collaboration" class="route" data-route="collaboration">
+  <div class="page-head"><div><p class="eyebrow">Optional collaboration</p><h1>Local-first collaboration room</h1><p>Same-origin tabs can collaborate immediately through BroadcastChannel. Internet peer collaboration is optional, user-triggered and never required for core functionality.</p></div></div>
+  <div class="grid two"><article class="panel"><h2>Room controls</h2><label>Room ID<input id="room-id" value="safeguarding-nextgen-demo"></label><label>Display name<input id="display-name" maxlength="40" value="Steward"></label><div class="button-row"><button class="primary" id="join-local-room">Join local tab room</button><button class="secondary" id="leave-room">Leave</button></div><div id="room-status" class="notice">Not connected.</div><details><summary>Internet peer mode</summary><p class="muted">Experimental adapter. It loads a Trystero module from a public CDN only after you click the button, so it requires internet access and exposes the room identifier to discovery infrastructure. Do not use sensitive case data.</p><button class="secondary" id="join-internet-room">Join optional internet P2P room</button></details></article><article class="panel"><h2>Message</h2><label>Share non-sensitive coordination note<textarea id="room-message" rows="5"></textarea></label><button class="primary" id="send-room" disabled>Send</button><div class="chip-cloud" id="peer-list"></div></article></div>
+  <article class="panel"><h2>Room activity</h2><div class="chat-log" id="room-log" aria-live="polite"></div></article>
+</section>
+
+<section id="prompt" class="route" data-route="prompt">
+  <div class="page-head"><div><p class="eyebrow">Implementation foundry</p><h1>Safeguarding prompt builder</h1><p>Convert selected operating systems into a staged implementation prompt for another coding or research model. Deterministic, editable and portable.</p></div></div>
+  <div class="grid two"><article class="panel"><h2>Prompt inputs</h2><label>Project objective<textarea id="prompt-objective" rows="4">Build an accessible safeguarding platform that reduces harmful opportunity and reward, improves proportionate detection and repair, and strengthens intergenerational protective capacity without creating person-level threat scores.</textarea></label><fieldset><legend>Include modules</legend><div id="prompt-modules" class="grid two"></div></fieldset><label>Deployment target<select id="prompt-deployment"><option>GitHub Pages / static PWA</option><option>Cloudflare Pages + optional Worker backend</option><option>institutional deployment</option><option>portable offline-first field deployment</option></select></label><button class="primary" id="generate-prompt">Generate master prompt</button></article><article class="panel"><h2>Generated prompt</h2><textarea class="code-output" id="prompt-output" rows="22"></textarea><div class="button-row"><button class="secondary" id="copy-prompt">Copy</button><button class="secondary" id="download-prompt">Download .md</button></div></article></div>
+</section>
+
+<section id="guides" class="route" data-route="guides">
+  <div class="page-head"><div><p class="eyebrow">Simplified advanced guides</p><h1>One minute → action → advanced → implementation</h1><p>Progressive depth keeps complex safeguards usable by families and communities while retaining enough detail for engineers and institutions.</p></div></div>
+  <div id="guide-list" class="stack"></div>
+</section>
+
+<section id="diagnostics" class="route" data-route="diagnostics">
+  <div class="page-head"><div><p class="eyebrow">Runtime inspection</p><h1>Capability & self-test lab</h1><p>Inspect what this browser actually supports instead of assuming every advanced API exists.</p></div><button class="primary" id="rerun-tests">Run checks</button></div>
+  <div class="diagnostic-grid" id="capability-grid"></div>
+  <article class="panel"><h2>Local AI readiness</h2><p class="muted">No AI is required. This advisor only checks whether the device appears suitable for optional local inference and recommends a model-size class; it does not load a model.</p><div class="grid two"><label>Known GPU VRAM GB (optional)<input type="number" min="0" step="0.5" id="known-vram" placeholder="e.g. 8"></label><label>Desired workload<select id="ai-workload"><option>fast classification / drafting</option><option selected>balanced local reasoning</option><option>deeper local reasoning</option></select></label></div><button class="secondary" id="analyze-hardware">Analyze hardware</button><pre class="log" id="hardware-output">No hardware analysis has run.</pre></article>
+  <article class="panel"><h2>Self-tests</h2><div id="test-results" class="stack"></div></article>
+</section>
+
+<section id="about" class="route" data-route="about">
+  <div class="page-head"><div><p class="eyebrow">Doctrine & provenance</p><h1>Zero-Harm / Anti-Inversion note</h1><p>Safeguarding tools can themselves become harmful if they reward suspicion, surveillance, stigma, coercion or unreviewable authority. This bundle is designed to resist that inversion.</p></div></div>
+  <div class="grid two"><article class="panel"><h2>Guardrails</h2><ul><li>No person-level danger score.</li><li>No automated guilt determination.</li><li>No hidden telemetry.</li><li>No external transfer without an explicit user action.</li><li>No gamification for accusation volume or punishment.</li><li>Evidence, allegation, inference and simulation stay separate.</li><li>Appeal, correction, repair and data portability are first-class.</li><li>Accessibility and degraded-mode behavior are explicit.</li></ul></article><article class="panel"><h2>Attributions & licenses</h2><p>Architecture and feature concepts are adapted from the user-provided <strong>Feature Fusion Foundry</strong> and this Safeguarding Next-Gen conversation. No proprietary third-party source code is copied.</p><p>Bundle code: MIT License. Credit: <strong>Foster + Navi / Planetary Restoration Archive</strong>.</p><p><a href="./README.md">README</a> · <a href="./docs/ARCHITECTURE.md">Architecture</a> · <a href="./docs/CHAT_COMPENDIUM.md">Chat Compendium</a> · <a href="./LICENSE">License</a></p></article></div>
+</section>
+</main>
+
+<aside class="rightbar" id="right-hud" aria-label="Progress and context HUD">
+  <div class="hud-card"><p class="eyebrow">Stewardship HUD</p><h3>Progress</h3><div class="hud-metrics"><div><strong id="hud-level">1</strong><span>Level</span></div><div><strong id="hud-seeds">0</strong><span>Seeds</span></div></div><div class="xpbar"><i id="xp-fill"></i></div><small id="xp-label">0 / 100 XP</small></div>
+  <h3>Quests</h3><div class="stack" id="quest-list"></div>
+  <h3>Workspace state</h3><div class="stack small"><div class="record"><strong id="record-count">0</strong> local records</div><div class="record"><strong id="last-saved">Not saved yet</strong><br>last durable update</div></div>
+</aside>
+</div>
+
+<div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-title"><div class="modal-card"><div class="section-split"><div><p class="eyebrow">Global search</p><h2 id="search-title">Search workspace</h2></div><button class="secondary" id="close-search">Close</button></div><label class="searchbox"><span>⌕</span><input type="search" id="global-search" placeholder="Search systems, stories, guides and modules…"></label><div class="search-results" id="search-results"></div></div></div>
+<div class="tooltip hidden" id="tooltip" role="tooltip"></div>
+<script src="./assets/app.js" defer></script>
+</body>
+</html>

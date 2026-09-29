@@ -1,0 +1,11 @@
+{
+  "name": "Safeguarding Next-Gen OS",
+  "short_name": "Next-Gen OS",
+  "description": "A privacy-first systems workbench for making harmful behavior harder, more detectable, less rewarding and less transmissible across generations.",
+  "start_url": "./index.html#overview",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "icons": [{"src":"./assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
